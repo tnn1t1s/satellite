@@ -1,6 +1,6 @@
 # Satellite
 
-Satellite monitors, alerts on, and self-heals your Mesos cluster.
+Satellite is a monitoring, alerting and analysis solution for large scale Mesos clusters. It was developed and tested at scale by the Satellite core development team. 
 
 ## Overview
 
