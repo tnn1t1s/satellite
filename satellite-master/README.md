@@ -76,7 +76,7 @@ curl example.com/whitelist/on
 Response:
 
 ```
-my.dope.host
+my.good.host
 ```
 
 Request:
@@ -101,7 +101,7 @@ Response:
 
 ```
 my.broken.host
-my.dope.host
+my.good.host
 ```
 
 ### `GET /whitelist/host/{host}`
@@ -115,7 +115,7 @@ Example:
 Request:
 
 ```bash
-curl example.com/whitelist/host/my.dope.host
+curl example.com/whitelist/host/my.good.host
 ```
 
 Response:
@@ -134,13 +134,13 @@ Example:
 Request:
 
 ```bash
-curl -X DELETE example.com/whitelist/host/my.dope.host
+curl -X DELETE example.com/whitelist/host/my.good.host
 ```
 
 Response:
 
 ```
-my.dope.host was removed from the whitelist.
+my.good.host was removed from the whitelist.
 ```
 
 ### `PUT /whitelist/host/{host}/{flag}`
@@ -158,13 +158,13 @@ For `host` to pass validation it must be
 Success will return status code `201` and failure will return status code `400`.
 
 ```bash
-curl -X PUT example.com/whitelist/host/my.dope.host/off
+curl -X PUT example.com/whitelist/host/my.good.host/off
 ```
 
 Response:
 
 ```
-my.dope.host is now off.
+my.good.host is now off.
 ```
 
 ### `GET /state.json`
@@ -184,7 +184,7 @@ When a host changes state (from off to on, vice-versa, or when added to the
 inventory), a line similar to
 
 ```
-INFO [2015-01-22 02:18:21,003] riemann task 0 - satellite.whitelist - Turning my.dope.host on -> off
+INFO [2015-01-22 02:18:21,003] riemann task 0 - satellite.whitelist - Turning my.good.host on -> off
 ```
 
 will be logged.
@@ -193,7 +193,7 @@ If you are using the `ensure-all-tests-on-whitelisted-host-pass` recipe, note
 that you will continue to get log messages like
 
 ```
-WARN [2015-01-22 02:26:58,000] riemann task 1 - satellite.recipes - Turning off host my.dope.host due to failed test: #riemann.codec.Event{:host my.dope.host, :service mesos/slave/free swap in MB, :state critical, :description nil, :metric 1, :tags nil, :time 1421893578, :ttl 300.0}
+WARN [2015-01-22 02:26:58,000] riemann task 1 - satellite.recipes - Turning off host my.good.host due to failed test: #riemann.codec.Event{:host my.good.host, :service mesos/slave/free swap in MB, :state critical, :description nil, :metric 1, :tags nil, :time 1421893578, :ttl 300.0}
 ```
 
 even after the host is already off.
